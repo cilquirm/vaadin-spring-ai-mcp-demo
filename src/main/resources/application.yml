@@ -1,0 +1,10 @@
+vaadin:
+  launch-browser: true
+spring:
+  application:
+    name: vaadin-spring-ai-mcp-demo
+  ai:
+    ollama:
+      chat:
+        options:
+          model: "llama3.2:latest"
