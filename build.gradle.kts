@@ -36,7 +36,7 @@ dependencies {
 	implementation("org.springframework.ai:spring-ai-ollama-spring-boot-starter")
 	implementation("org.slf4j:slf4j-api:2.0.16")
   implementation("io.github.oshai:kotlin-logging-jvm:7.0.0")
-	implementation("com.github.mvysny.karibudsl:karibu-dsl:2.2.0")
+	implementation("com.github.mvysny.karibudsl:karibu-dsl:2.1.4")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.boot:spring-boot-testcontainers")

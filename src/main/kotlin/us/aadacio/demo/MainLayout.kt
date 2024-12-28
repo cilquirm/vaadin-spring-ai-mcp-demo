@@ -6,15 +6,10 @@ import com.vaadin.flow.component.applayout.AppLayout
 import com.vaadin.flow.router.Layout
 import com.vaadin.flow.router.RouterLayout
 
-
 @Layout
 class MainLayout : AppLayout(), RouterLayout {
 
-  init {
-    navbar {
-        h3("Vaadin Spring AI Demo")
+    init {
+        navbar { h3("Vaadin Spring AI Demo") }
     }
-  }
-
-
 }
