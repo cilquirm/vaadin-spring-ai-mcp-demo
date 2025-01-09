@@ -51,7 +51,7 @@ class MainView constructor(val chatModel: ChatModel, val taskExecutor: TaskExecu
                         }*/
 
                         spinner.show()
-                        
+
                         logger.info { "calling task executor" }
                         taskExecutor.execute {
                             logger.info { "calling chat model with ${se.value}" }
