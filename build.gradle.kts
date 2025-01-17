@@ -10,12 +10,13 @@ group = "us.aadacio"
 
 version = "0.0.1-SNAPSHOT"
 
-java { toolchain { languageVersion = JavaLanguageVersion.of(17) } }
+java { toolchain { languageVersion = JavaLanguageVersion.of(21) } }
 
 repositories {
     mavenCentral()
     maven { url = uri("https://repo.spring.io/milestone") }
     maven { url = uri("https://maven.vaadin.com/vaadin-addons") }
+    maven { url = uri("https://repo.spring.io/libs-milestone-local")}
 }
 
 extra["netflixDgsVersion"] = "9.2.2"
@@ -40,6 +41,7 @@ dependencies {
     implementation("com.github.mvysny.karibudsl:karibu-dsl:2.1.4")
     implementation("com.github.mvysny.karibu-tools:karibu-tools-23:0.23")
     implementation("org.vaadin:spinkit:3.0.0")
+    implementation("org.springframework.experimental:spring-ai-mcp:0.5.0")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.boot:spring-boot-testcontainers")
