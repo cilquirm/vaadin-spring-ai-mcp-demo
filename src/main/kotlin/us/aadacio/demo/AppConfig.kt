@@ -18,7 +18,7 @@ class AppConfig {
 
   val logger = KotlinLogging.logger {} 
 
-    @Bean("hotelSearch")
+    @Bean("travelSearchMCPClient")
     fun hotelSearchMCPClient() : McpSyncClient {
       val mapper = ObjectMapper()
       mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
@@ -28,14 +28,15 @@ class AppConfig {
     }
 
     @Bean
-    fun chatClient(builder: ChatClient.Builder, @Qualifier("hotelSearch") mcpSyncClient: McpSyncClient): ChatClient {
-        return builder.defaultFunctions(
+    fun chatClient(builder: ChatClient.Builder, @Qualifier("travelSearchMCPClient") mcpSyncClient: McpSyncClient): ChatClient {
+        return builder/*.defaultFunctions(
             *mcpSyncClient.listTools().tools.map {
                 t -> t.let {
                   logger.info{ it } 
                   McpFunctionCallback(mcpSyncClient, t)
                 }
-            }.toTypedArray()).build()
+            }.toTypedArray())*/
+            .build()
     }
 
 }

@@ -7,4 +7,4 @@ spring:
     ollama:
       chat:
         options:
-          model: "llama3.2:latest"
+          model: "granite3.1-dense:2b"
