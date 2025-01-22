@@ -18,10 +18,11 @@ import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import org.springframework.ai.chat.model.ChatModel
+import org.springframework.ai.chat.client.ChatClient
 import org.springframework.core.task.TaskExecutor
 
 @Route("")
-class MainView constructor(val chatModel: ChatModel, val taskExecutor: TaskExecutor, val spinner: ChattingWithAISpinner) :
+class MainView constructor(val chatModel: ChatClient, val taskExecutor: TaskExecutor, val spinner: ChattingWithAISpinner) :
         VerticalLayout(), CoroutineScope {
     val logger = KotlinLogging.logger {}
     private var chatList: MessageList
@@ -55,7 +56,7 @@ class MainView constructor(val chatModel: ChatModel, val taskExecutor: TaskExecu
                         logger.info { "calling task executor" }
                         taskExecutor.execute {
                             logger.info { "calling chat model with ${se.value}" }
-                            val response = chatModel.call(se.value)
+                            val response = chatModel.prompt(se.value).call().content()
                             logger.info { "received chat model call: $response" }
 
                             ui.access {
